@@ -1,5 +1,6 @@
-#  Class Complement has a method of_dna and a hash of DNA nucleotide complements
+# Class Complement has a method of_dna and a hash of DNA nucleotide complements
 class Complement
+  # This hash stores a complementary RNA strand as a value for a DNA strand as a key
   COMPLEMENTS = {
     'G' => 'C',
     'C' => 'G',
