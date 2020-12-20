@@ -1,8 +1,8 @@
-# An object of the class TwoFer returns a customized message when
-# a name is passed as an argument to its class method "two_fer".
-# If a name is not passed it takes a default value of "you"
+# An object of the class TwoFer has a class method "two_fer"
 class TwoFer
+  # two_fer returns a customized message when a name is passed as an argument
+  # If a name is not passed it takes a default value of "you"
   def self.two_fer(name = 'you')
-    "One for #{name}, one for me."
+    format('One for %s, one for me.', name)
   end
 end
