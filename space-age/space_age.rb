@@ -1,37 +1,25 @@
+# class 'SpaceAge' was implemented in order to find a relative age in a particular planet
 class SpaceAge
+  # 'EARTH_YEAR' stores the amount of seconds in an Earth year
+  # 'YEAR_DURATIONS' stores the duration of a year relative to the Earth year
+  EARTH_YEAR = 31_557_600
+  YEAR_DURATIONS = {
+    on_earth: 1.0,
+    on_mercury: 0.2408467,
+    on_venus: 0.61519726,
+    on_mars: 1.8808158,
+    on_jupiter: 11.862615,
+    on_saturn: 29.447498,
+    on_uranus: 84.016846,
+    on_neptune: 164.79132
+  }.freeze
+
+  # An object of the class 'SpaceAge' is created with an age in seconds passed as an argument
+  # With that 'age_in_seconds' we define all the methods needed to find the relative age on each planet
   def initialize(age_in_seconds)
     @age_in_seconds = age_in_seconds
-  end
-
-  def on_earth
-    (@age_in_seconds/(31557600.0)).round(2)
-  end
-
-  def on_mercury
-    (@age_in_seconds/(31557600*0.2408467)).round(2)
-  end
-
-  def on_venus
-    (@age_in_seconds/(31557600*0.61519726)).round(2)
-  end
-
-  def on_mars
-    (@age_in_seconds/(31557600*1.8808158)).round(2)
-  end
-
-  def on_jupiter
-    (@age_in_seconds/(31557600*11.862615)).round(2)
-  end
-
-  def on_saturn
-    (@age_in_seconds/(31557600*29.447498)).round(2)
-  end
-
-  def on_uranus
-    (@age_in_seconds/(31557600*84.016846)).round(2)
-  end
-  
-  def on_neptune
-    (@age_in_seconds/(31557600*164.79132)).round(2)
+    YEAR_DURATIONS.each do |name, factor|
+      self.class.send(:define_method, name) { @age_in_seconds / (EARTH_YEAR * factor) }
+    end
   end
 end
