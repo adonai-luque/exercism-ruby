@@ -3,6 +3,9 @@ class Acronym
   # The class method 'abbreviate' returns a word formed combining the uppercased
   # initial letters of the words in the phrase passed as an argument
   def self.abbreviate(name)
-    name.scan(/[a-zA-Z]+/).map { |word| word[0].upcase }.join
+    name
+      .scan(/\b[a-zA-Z]/)
+      .join
+      .upcase
   end
 end
