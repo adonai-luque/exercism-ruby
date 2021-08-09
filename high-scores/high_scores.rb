@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 # class 'HighScores' was created in order to provide insights into a list of scores
 class HighScores
-  
   private
 
   # An object is initialized passing an array of scores as a parameter
@@ -26,7 +27,7 @@ class HighScores
   # This method returns the top three scores. If there aren't 3 scores in the list
   # it returns as much scores as it can get
   def personal_top_three
-    scores.max([scores.length, 3].min)      
+    scores.max([scores.length, 3].min)
   end
 
   # This method evaluates if the latest score registered is also the best score

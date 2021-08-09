@@ -15,7 +15,7 @@ class Series
 
   def slices(slice_length)
     raise ArgumentError if slice_length > digits_length
-    
+
     last_start = digits_length - slice_length
     (0..last_start).map { |n| digits[n, slice_length] }
   end
