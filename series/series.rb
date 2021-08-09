@@ -13,10 +13,10 @@ class Series
     digits.length
   end
 
-  def slices(number_of_digits)
-    raise ArgumentError if number_of_digits > digits_length
-      
-    last_start = digits_length - number_of_digits
-    (0..last_start).map { |n| digits[n, number_of_digits] }
+  def slices(slice_length)
+    raise ArgumentError if slice_length > digits_length
+    
+    last_start = digits_length - slice_length
+    (0..last_start).map { |n| digits[n, slice_length] }
   end
 end
